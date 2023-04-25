@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+    <title>Title</title>
+</head>
+<body>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="col" th:each="i : ${items}">
+        <div class="card shadow-sm">
+            <img th:src="${i.getUrl()}" class="bd-placeholder-img card-img-top" width="100%" height="225">
+            <div class="card-body">
+                <p class="card-text" th:text="${i.getName()}"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a th:href="'/edit/'+${i.getId()}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                        <a th:href="'/delete/'+${i.getId()}" type="button" class="btn btn-sm btn-outline-secondary">Delete</a>
+                    </div>
+                    <small th:text="${i.getTimeFormat()}" class="text-body-secondary"></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
